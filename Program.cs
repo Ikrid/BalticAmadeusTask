@@ -97,7 +97,13 @@ public static void Main()
     {
         Console.Write("Enter custom VAT rate for Private clients (%): ");
 
-        string input = Console.ReadLine() ?? "";
+        string? input = Console.ReadLine();
+
+        if (input == null)
+        {
+            Console.Error.WriteLine("Not enough input.");
+            return;
+        }
 
         bool isNumber = decimal.TryParse(
             input,
@@ -129,7 +135,13 @@ public static void Main()
     {
         Console.Write("Enter custom Excise rate for Gasoline: ");
 
-        string input = Console.ReadLine() ?? "";
+        string? input = Console.ReadLine();
+
+        if (input == null)
+        {
+            Console.Error.WriteLine("Not enough input.");
+            return;
+        }
 
         bool isNumber = decimal.TryParse(
             input,
@@ -137,7 +149,7 @@ public static void Main()
             CultureInfo.InvariantCulture,
             out GasolineExcise
         );
-
+    
         if (!isNumber)
         {
             Console.WriteLine("Please enter a number.");
@@ -195,7 +207,13 @@ public static void Main()
     {
         Console.Write("Choose date range, Start Date: ");
 
-        string input = Console.ReadLine() ?? "";
+        string? input = Console.ReadLine();
+
+        if (input == null)
+        {
+            Console.Error.WriteLine("Not enough input.");
+            return;
+        }
 
         bool isDate = DateTime.TryParseExact(
             input,
@@ -219,7 +237,13 @@ public static void Main()
     while (true)
     {
         Console.Write("End date: ");
-        string input = Console.ReadLine() ?? "";
+        string? input = Console.ReadLine();
+
+        if (input == null)
+        {
+            Console.Error.WriteLine("Not enough input.");
+            return;
+        }
 
         bool isDate = DateTime.TryParseExact(
             input,
